@@ -1,5 +1,21 @@
 def max_sum(arr):
     s_now = 0
+    s = 0
+
+    for elem in arr:
+        if s_now + elem >= 0:
+            s_now += elem
+        else:
+            s_now = elem
+
+        if s_now >= s:
+            s = s_now
+
+    return s
+
+
+def max_asc_sum2(arr):
+    s_now = 0
     s_start_now = 0
     s_end_now = 0
 
@@ -36,7 +52,8 @@ def max_sum(arr):
     return (s1, s1_start, s1_end), (s2, s2_start, s2_end)
 
 
-print(max_sum([9, 1, 2, 3, 4, -7, 6]))
+print(max_sum([1, 2, 3, 4, -7, 6]))
+print(max_asc_sum2([9, 1, 2, 3, 4, -7, 6]))
 
 
 # def max_sum(arr):
